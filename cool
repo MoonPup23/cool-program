@@ -1,0 +1,32 @@
+from tkinter import *
+from random import randint
+
+
+def create():
+    x = 100
+    y = 150
+    size = randint(10 , 200)
+    num = randint(1, 3)
+    if num == 1:
+         canvas.create_rectangle(x, y, x + size, y + size, fill='red')
+    elif num == 2:
+        canvas.create_oval(x, y, x + size, y + size, fill="pink")
+    elif num == 3:
+        canvas.create_polygon(x, y, x + size, y, x + size / 2, y + size, fill="green")
+
+
+def delet():
+    canvas.delete('all')
+
+
+
+root = Tk()
+root.geometry('500x300')
+root.title('прога')
+root.resizable(False, False)
+Button(root ,text = 'create' , width = 8 , height = 2 ,command= create).pack()
+Button(root ,text = 'delete' , width = 8 , height = 2 ,command=delet).pack()
+canvas = Canvas(root, width = 500, height = 300)
+canvas.pack()
+
+root.mainloop()
